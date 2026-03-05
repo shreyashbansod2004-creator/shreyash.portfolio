@@ -1,0 +1,346 @@
+:root{
+ --bg:#0f1512;
+ --card:#141c18;
+ --green:#9CFF00;
+ --text:#e6f5ec;
+}
+
+*{
+ margin:0;
+ padding:0;
+ box-sizing:border-box;
+}
+
+html{
+ scroll-behavior:smooth;
+}
+
+body{
+ background:linear-gradient(120deg,#0f1512,#13201a,#0f1512);
+ color:var(--text);
+ font-family:Poppins,sans-serif;
+ overflow-x:hidden;
+}
+
+/* ================= NAVBAR ================= */
+
+nav{
+ position:fixed;
+ top:20px;
+ left:50%;
+ transform:translateX(-50%);
+ background:#0c120f;
+ padding:10px 25px;
+ border-radius:50px;
+ display:flex;
+ align-items:center;
+ gap:25px;
+ z-index:999;
+ transition:.6s ease;
+ backdrop-filter: blur(10px);
+}
+
+nav.nav-close{
+ transform:translate(-50%,-120%);
+ opacity:0;
+}
+
+/* PROFILE IMAGE FIXED */
+nav img{
+ width:50px;
+ height:50px;
+ border-radius:50%;
+ object-fit:cover;
+ object-position:50% 15%;
+ display:block;
+ border:2px solid var(--green);
+}
+
+/* NAV LINKS */
+nav a{
+ color:#cceedd;
+ text-decoration:none;
+ font-size:14px;
+ transition:.3s;
+}
+
+nav a:hover{
+ color:var(--green);
+}
+
+/* CONTACT BUTTON */
+.contact-btn{
+ background:#f2f2d8;
+ color:#000;
+ padding:8px 18px;
+ border-radius:30px;
+ font-weight:600;
+ cursor:pointer;
+ border:none;
+ transition:.3s;
+}
+
+.contact-btn:hover{
+ background:var(--green);
+}
+
+/* ================= SECTIONS ================= */
+
+section{
+ min-height:100vh;
+ padding:140px 10%;
+}
+
+/* ================= HERO ================= */
+
+#home{
+ display:flex;
+ align-items:center;
+ justify-content:space-between;
+}
+
+.hero-text h1{
+ font-family:Anton;
+ font-size:90px;
+}
+
+.hero-text p{
+ margin-top:15px;
+ font-size:18px;
+ color:#cceedd;
+}
+
+/* HERO IMAGE FLIP */
+
+.hero-img{
+ width:260px;
+ height:340px;
+ perspective:1000px;
+}
+
+.flip-card{
+ width:100%;
+ height:100%;
+}
+
+.flip-inner{
+ position:relative;
+ width:100%;
+ height:100%;
+ transition:transform 1s;
+ transform-style:preserve-3d;
+}
+
+.flip-inner.flip{
+ transform:rotateY(180deg);
+}
+
+.flip-front,
+.flip-back{
+ position:absolute;
+ width:100%;
+ height:100%;
+ backface-visibility:hidden;
+ border-radius:25px;
+ overflow:hidden;
+}
+
+.flip-front img,
+.flip-back img{
+ width:100%;
+ height:100%;
+ object-fit:cover;
+}
+
+.flip-back{
+ transform:rotateY(180deg);
+}
+
+/* NAME ANIMATION */
+
+.hero-name{
+ margin-top:14px;
+ font-family:Anton;
+ letter-spacing:2px;
+ opacity:0;
+ transform:translateY(30px);
+ transition:1s ease;
+}
+
+/* ================= ABOUT ================= */
+
+#about h2,
+#projects h2{
+ font-family:Anton;
+ font-size:40px;
+ margin-bottom:20px;
+}
+
+#about p{
+ max-width:700px;
+ line-height:1.7;
+ color:#cceedd;
+}
+
+/* ================= PROJECTS ================= */
+
+.project-wrap{
+ display:flex;
+ gap:30px;
+ margin-top:40px;
+}
+
+.project{
+ flex:1;
+ background:var(--card);
+ padding:30px;
+ border-radius:20px;
+ cursor:pointer;
+ transition:.4s;
+}
+
+.project:hover{
+ transform:translateY(-10px);
+ box-shadow:0 0 30px rgba(156,255,0,.2);
+}
+
+/* ================= MODALS ================= */
+
+#projectModal,
+#contactPopup{
+ position:fixed;
+ inset:0;
+ display:none;
+ background:rgba(0,0,0,.7);
+ align-items:center;
+ justify-content:center;
+ z-index:2000;
+}
+
+.modal-box,
+.contact-box{
+ background:#111;
+ padding:30px;
+ border-radius:20px;
+ max-width:400px;
+ width:90%;
+}
+
+.close{
+ cursor:pointer;
+ float:right;
+}
+
+.demo-btn{
+ display:inline-block;
+ margin-top:20px;
+ background:var(--green);
+ color:#000;
+ padding:10px 22px;
+ border-radius:30px;
+ font-weight:600;
+ text-decoration:none;
+}
+
+/* ================= ANIMATIONS ================= */
+
+.fade-text{
+ opacity:0;
+ transform:translateY(50px);
+ transition:1s ease;
+}
+
+.fade-text.show{
+ opacity:1;
+ transform:translateY(0);
+}
+
+.fade-pop{
+ opacity:0;
+ transform:scale(.9);
+ transition:1s ease;
+}
+
+.fade-pop.show{
+ opacity:1;
+ transform:scale(1);
+}
+
+/* ================= DOT EFFECT ================= */
+
+.dot{
+ position:fixed;
+ border-radius:50%;
+ background:var(--green);
+ pointer-events:none;
+ animation:dotFade 1.5s ease forwards;
+}
+
+@keyframes dotFade{
+ 0%{opacity:0}
+ 40%{opacity:.9}
+ 100%{opacity:0}
+}
+
+/* ================= SCROLL TO TOP BUTTON ================= */
+
+#scrollTopBtn{
+ position:fixed;
+ bottom:30px;
+ right:30px;
+ width:50px;
+ height:50px;
+ border-radius:50%;
+ border:none;
+ background:var(--green);
+ color:#000;
+ font-size:22px;
+ font-weight:bold;
+ cursor:pointer;
+ display:flex;
+ align-items:center;
+ justify-content:center;
+ opacity:0;
+ pointer-events:none;
+ transition:.4s ease;
+ z-index:1500;
+ box-shadow:0 0 20px rgba(156,255,0,.4);
+}
+
+#scrollTopBtn.show{
+ opacity:1;
+ pointer-events:auto;
+}
+
+#scrollTopBtn:hover{
+ transform:translateY(-5px);
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:900px){
+
+ #home{
+  flex-direction:column;
+  text-align:center;
+  gap:40px;
+ }
+
+ .hero-text h1{
+  font-size:48px;
+ }
+
+ .project-wrap{
+  flex-direction:column;
+ }
+
+ nav{
+  gap:15px;
+  padding:8px 18px;
+ }
+
+ nav img{
+  width:45px;
+  height:45px;
+ }
+}
