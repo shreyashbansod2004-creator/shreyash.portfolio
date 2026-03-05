@@ -145,17 +145,25 @@ From data cleaning to model deployment, I focus on creating efficient, productio
 
 <script>
 
-window.onload = function() {
+/* FORCE WEBSITE TO OPEN AT HOME SECTION */
 
-    window.scrollTo({
-        top: 0,
-        behavior: "instant"
-    });
-
+if ('scrollRestoration' in history) {
+history.scrollRestoration = 'manual';
 }
+
+window.onload = function () {
+
+history.replaceState(null, null, ' ');
+
+document.getElementById("home").scrollIntoView({
+behavior: "instant"
+});
+
+};
 
 </script>
 
 
 </body>
 </html>
+
