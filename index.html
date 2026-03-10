@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shreyash Bansod — Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Poppins:wght@300;400;500;600&family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- CUSTOM CURSOR -->
+<div id="cursor"></div>
+<div id="cursor-ring"></div>
+
+<!-- PROGRESS BAR -->
+<div id="progress-bar"></div>
+
+<!-- NEURAL BG CANVAS -->
+<canvas id="neural-bg"></canvas>
+
+<!-- AMBIENT BLOBS -->
+<div class="blob blob-1"></div>
+<div class="blob blob-2"></div>
+<div class="blob blob-3"></div>
+
+<!-- NAVBAR -->
+<nav id="navbar">
+  <img src="hero-front.png" alt="Profile">
+  <a href="#home">Home</a>
+  <a href="#about">About</a>
+  <a href="#projects">Projects</a>
+  <button class="contact-btn" onclick="openContact()">Contact</button>
+</nav>
+
+
+<!-- =================== HERO =================== -->
+<section id="home">
+
+  <span class="float-badge float-badge-1">⚡ ML Engineer</span>
+  <span class="float-badge float-badge-2">📊 Data Science</span>
+  <span class="float-badge float-badge-3">🤖 AI Enthusiast</span>
+
+  <div class="hero-text fade-text">
+
+    <div class="hero-label">
+      <span class="dot"></span>
+      Available for opportunities
+    </div>
+
+    <h1><span id="typing"></span></h1>
+
+    <p>I turn raw data into intelligent decisions &amp; scalable ML solutions.</p>
+
+    <div class="hero-stats">
+      <div class="stat-item">
+        <span class="stat-num" data-count="5">0</span>
+        <span class="stat-label">Projects</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num" data-count="3">0</span>
+        <span class="stat-label">ML Models</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num" data-count="2">0</span>
+        <span class="stat-label">Years Learning</span>
+      </div>
+    </div>
+
+    <div class="social-buttons" style="margin-top:25px;">
+      <a href="https://github.com/shreyashbansod2004-creator" target="_blank" class="social-btn">GitHub</a>
+      <a href="https://linkedin.com/in/YOURUSERNAME" target="_blank" class="social-btn">LinkedIn</a>
+    </div>
+
+  </div>
+
+  <div class="hero-img-wrap fade-pop">
+
+    <div class="hero-img">
+      <div class="flip-card">
+        <div class="flip-inner" id="flipInner">
+          <div class="flip-front">
+            <img src="hero-front.png" alt="Shreyash Front">
+          </div>
+          <div class="flip-back">
+            <img src="hero-back.jpg" alt="Shreyash Back">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <span class="hero-name" id="heroName">Shreyash Bansod</span>
+
+  </div>
+
+</section>
+
+<div class="section-divider"></div>
+
+<!-- =================== ABOUT =================== -->
+<section id="about" class="fade-text">
+
+  <div class="section-header">
+    <span class="section-num">01</span>
+    <div class="section-title-wrap">
+      <h2>About Me</h2>
+      <div class="line"></div>
+    </div>
+  </div>
+
+  <div class="about-grid">
+
+    <div class="about-text">
+      <p>
+        I'm a Data Science Engineer passionate about building intelligent systems that transform raw data into meaningful insights.
+        I specialize in machine learning, data pipelines, and scalable solutions that solve real-world problems.
+      </p>
+      <p style="margin-top:16px; color: var(--muted); font-size:14px;">
+        With hands-on experience in Python, ML frameworks, and data analytics, I love turning complex datasets into actionable intelligence. Always learning. Always building.
+      </p>
+    </div>
+
+    
+
+  </div>
+
+</section>
+
+<div class="section-divider"></div>
+
+<!-- =================== PROJECTS =================== -->
+<section id="projects" class="fade-text">
+
+  <div class="section-header">
+    <span class="section-num">02</span>
+    <div class="section-title-wrap">
+      <h2>Projects</h2>
+      <div class="line"></div>
+    </div>
+  </div>
+
+  <div class="project-wrap">
+
+    <div class="project" onclick="openProject1()">
+      <span class="project-num">01</span>
+      <h3>SMS / Email Spam Prediction</h3>
+      <div class="tech-stack">
+        <span>Python</span>
+        <span>Pandas</span>
+        <span>NumPy</span>
+        <span>Scikit-Learn</span>
+        <span>Streamlit</span>
+      </div>
+      <div class="project-arrow">View Project →</div>
+    </div>
+
+    <div class="project" onclick="openProject2()">
+      <span class="project-num">02</span>
+      <h3>Project Two</h3>
+      <div class="tech-stack">
+        <span>Python</span>
+        <span>ML</span>
+        <span>Data</span>
+      </div>
+      <div class="project-arrow">View Project →</div>
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =================== MODALS =================== -->
+
+<div id="projectModal1" class="modal">
+  <div class="modal-box fade-text">
+    <span class="close" onclick="closeProject1()">✕</span>
+    <h2>Spam Classification Tool</h2>
+    <h3>Project Description</h3>
+    <p>Machine learning model that classifies SMS and email messages as spam or not spam using natural language processing.</p>
+    <h3>Key Features</h3>
+    <ul class="feature-list">
+      <li>Machine Learning model trained to classify spam and non-spam messages</li>
+      <li>Natural Language Processing (NLP) used for text preprocessing</li>
+      <li>TF-IDF vectorization for feature extraction</li>
+      <li>Real-time message prediction through a simple user interface</li>
+      <li>Interactive web application built with Streamlit</li>
+      <li>Deployed online for live spam detection</li>
+    </ul>
+    <a class="demo-btn" href="https://zxp2p3cttncetpb3zuvihm.streamlit.app/" target="_blank">Live Demo →</a>
+  </div>
+</div>
+
+<div id="projectModal2" class="modal">
+  <div class="modal-box fade-text">
+    <span class="close" onclick="closeProject2()">✕</span>
+    <h2>Project Two</h2>
+    <h3>Project Description</h3>
+    <p>This project demonstrates machine learning techniques applied to data analysis and prediction.</p>
+    <h3>Key Features</h3>
+    <ul class="feature-list">
+      <li>Data preprocessing and cleaning</li>
+      <li>Machine learning model training</li>
+      <li>Prediction and evaluation</li>
+      <li>Interactive visualization</li>
+    </ul>
+    <a class="demo-btn" href="#" target="_blank">Live Demo →</a>
+  </div>
+</div>
+
+<div id="contactPopup">
+  <div class="contact-box fade-text">
+    <span class="close" onclick="closeContact()">✕</span>
+    <div class="contact-title">Let's Connect</div>
+    <div class="contact-item">
+      <span class="contact-icon">📧</span>
+      <span>shreyashbansod10@gmail.com</span>
+    </div>
+    <div class="contact-item">
+      <span class="contact-icon">📱</span>
+      <span>+91 9890037720</span>
+    </div>
+    <div class="contact-item">
+      <span class="contact-icon">📸</span>
+      <span>shreyashbansod10_</span>
+    </div>
+    <div class="social-buttons">
+      <a href="https://github.com/shreyashbansod2004-creator" target="_blank" class="social-btn">GitHub</a>
+      <a href="https://linkedin.com/in/YOURUSERNAME" target="_blank" class="social-btn">LinkedIn</a>
+    </div>
+  </div>
+</div>
+
+
+<button id="scrollTopBtn">&#8593;</button>
+
+<script src="script.js"></script>
+
+</body>
+</html>
