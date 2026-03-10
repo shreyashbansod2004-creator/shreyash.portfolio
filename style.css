@@ -119,10 +119,32 @@ align-items:center;
 justify-content:space-between;
 }
 
+/* HERO TEXT COLOR ANIMATION */
+
 .hero-text h1{
 font-family:Anton;
 font-size:70px;
+
+background:linear-gradient(
+90deg,
+#9CFF00,
+#7dffb3,
+#ffffff,
+#9CFF00
+);
+
+background-size:300%;
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+
+animation:heroGradient 6s linear infinite;
 }
+
+@keyframes heroGradient{
+0%{background-position:0%}
+100%{background-position:300%}
+}
+
 .hero-text p{
 margin-top:15px;
 font-size:18px;
